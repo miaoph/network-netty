@@ -9,7 +9,7 @@ public class NioClient {
     public  static  void start(){
         if(nioClientHandle != null){
             nioClientHandle.stop();
-            nioClientHandle=new NioClientHandle(DEFAULT_SERVER_IP,DEFAULT_SERVER_PORT);
+//            nioClientHandle=new NioClientHandle(DEFAULT_SERVER_IP,DEFAULT_SERVER_PORT);
         }
     }
 
