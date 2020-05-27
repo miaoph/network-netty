@@ -61,7 +61,15 @@ public class EchoClient {
 
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        new EchoClient(9999, "127.0.0.1").start();
-    }
+  public static void main(String[] args) throws InterruptedException {
+       MyLocal local = new MyLocal();
+       local.set(200);
+       new Thread(()->System.out.printf("%s \n",local.get())).run();
+  }
+  private static  class  MyLocal extends  ThreadLocal<Integer>{
+        @Override
+        protected  Integer initialValue(){
+            return 100;
+        }
+  }
 }
