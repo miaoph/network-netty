@@ -17,12 +17,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
+ * @author
  * 类说明：Netty客户端的主入口
  */
 public class NettyClient implements Runnable{
@@ -46,7 +47,7 @@ public class NettyClient implements Runnable{
 
     /*连接服务器*/
     public void connect(int port, String host) throws Exception {
-
+        final ConcurrentHashMap<String, Object> hashMap = new ConcurrentHashMap<>();
         try {
             Bootstrap b = new Bootstrap();
             b.group(group).channel(NioSocketChannel.class)
